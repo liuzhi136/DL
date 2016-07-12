@@ -97,7 +97,7 @@ def predict(inputs):
 	for i in range(50):
 		h = np.tanh(np.dot(Wxh, x) + np.dot(Whh, h) + bh)
 		y = np.dot(Why, h) + by
-		p = np.exp(y) + np.sum(np.exp(y))
+		p = np.exp(y) / np.sum(np.exp(y))
 		ix = np.random.choice(range(vocab_size), p=p.ravel())
 		# ix = np.argmax(p)
 
@@ -194,7 +194,7 @@ while True:
 	for i in range(50):
 		h = np.tanh(np.dot(Wxh, x) + np.dot(Whh, h) + bh)
 		y = np.dot(Why, h) + by
-		p = np.exp(y) + np.sum(np.exp(y))
+		p = np.exp(y) / np.sum(np.exp(y))
 		ix = np.random.choice(range(vocab_size), p=p.ravel())
 		# ix = np.argmax(p)
 
